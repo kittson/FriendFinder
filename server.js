@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-//app.use('/public', express.static(__dirname + '/app/public'));
+app.use('/public', express.static(__dirname + 'app/public'));
 
 var bodyParser = require('body-parser');
 var path = require('path');
