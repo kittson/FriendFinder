@@ -1,19 +1,27 @@
 var friendsArry = [
 	{
 		name: "Suzi",
-		scores: [5,4,3,4,5,1,1,2,3,4]		
+		photoUrl: "http://www.dogtricktips.com/wp-content/uploads/2015/03/Budget-Friendly-Dogs.jpg",
+		number: "234-4566",
+		scores: [5,4,3,4]		
 	},
 	{
 		name: "Renee",
-		scores: [3,4,4,1,1,2,3,4,5,5]		
+		photoUrl: "http://i.huffpost.com/gen/3753966/thumbs/s-DOG-EATING-GRASS-large640.jpg",
+		number: "234-4566",
+		scores: [3,1,1,1]		
 	},
 	{
 		name: "Toko en Cho",
-		scores: [1,4,3,4,4,5,5,2,3,5]		
+		photoUrl: "http://esq.h-cdn.co/assets/16/17/980x490/landscape-1461680497-gettyimages-136644846.jpg",
+		number: "234-4566",
+		scores: [1,4,3,4]		
 	},
 	{
 		name: "Jerry",
-		scores: [2,2,5,1,5,4,2,3,3,3]		
+		photoUrl: "https://barkpost.com/wp-content/uploads/2014/07/Emotion-motion-by-Jelly-Dude-via-Flickr.jpg",
+		number: "234-4566",
+		scores: [2,2,5,1]		
 	}
 ];
 

@@ -4,7 +4,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 
-//app.use('/public', express.static(__dirname + 'app/public'));
+//this is for finding the image dir
+
 app.use(express.static(path.join(__dirname, 'app/public')));
 
 var PORT = process.env.PORT || 3030;
