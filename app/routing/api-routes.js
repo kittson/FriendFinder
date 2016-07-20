@@ -4,11 +4,11 @@ var path = require('path');
 module.exports = function(app){
 
 	app.get('/api/friends', function(req, res){
-		res.json(friendsData);
+		//res.json(friendsData);
 		console.log("in friends.js");
 	});
 
-	/*app.post('/api/friends', function(req, res){
+	app.post('/api/friends', function(req, res){
 		console.log("here");
-	});*/
+	});
 };

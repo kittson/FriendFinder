@@ -1,9 +1,11 @@
 var express = require('express');
 var app = express();
-app.use('/public', express.static(__dirname + 'app/public'));
 
 var bodyParser = require('body-parser');
 var path = require('path');
+
+//app.use('/public', express.static(__dirname + 'app/public'));
+app.use(express.static(path.join(__dirname, 'app/public')));
 
 var PORT = process.env.PORT || 3030;
 
