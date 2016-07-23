@@ -33,41 +33,44 @@
 						<form role="form">							
 							<div class="form-group">
 								<label for="">Name</label>
-								<input type="text" class="form-control" id="friend_name">
+								<input type="text" class="form-control" id="friend_name" required>
 							</div>
 							<div class="form-group">
 								<label for="">Phone Number</label>
-								<input type="text" class="form-control" id="friend_phone">
+								<input type="text" class="form-control" id="friend_phone" required>
 							</div>
-
+							<div class="form-group">
+								<label for="">Add a URL to your photo!</label>
+								<input type="text" class="form-control" id="friend_photo" required>
+							</div>
 							<div class="form-group">
 								<h3><strong>Question 1</strong></h3>
 								<h4>Are you a Republican, Libertarian, Independant, Democratic, Green?</h4>
-								<select data-placeholder="" class="chosen-select" id="q1">
+								<select data-placeholder="" class="chosen-select" id="q1" required>
 									<option value=""></option>
-									<option value="1">1 (Republican)</option>
-									<option value="2">2 (Libertarian)</option>
+									<option value="1">1 (Green)</option>
+									<option value="2">2 (Democratic)</option>
 									<option value="3">3 (Independant)</option>
-									<option value="4">4 (Democratic)</option>
-									<option value="5">5 (Green)</option>
+									<option value="4">4 (Libertarian)</option>
+									<option value="5">5 (Republican)</option>
 								</select>								
 							</div>
 							<div class="form-group">
 								<h3><strong>Question 2</strong></h3>
-								<h4>Is going to a shooting range high on your list of fun things to do?</h4>
-								<select data-placeholder="" class="chosen-select" id="q2">
+								<h4>Do you think it's appropriate to carry a loaded gun to class?</h4>
+								<select data-placeholder="" class="chosen-select" id="q2" required>
 									<option value=""></option>
 									<option value="1">1 (Strongly Disagree)</option>
 									<option value="2">2 (Mildly Disagree)</option>
 									<option value="3">3 (Neutral)</option>
 									<option value="4">4 (Mildly Agree)</option>
-									<option value="5">5 (Strongly Agree)</option>
+									<option value="5">5 (Strongly Agree, actually bringing an assault rifle is best)</option>
 								</select>								
 							</div>
 							<div class="form-group">
 								<h3><strong>Question 3</strong></h3>
-								<h4>I read Huffington Post every day.</h4>
-								<select data-placeholder="" class="chosen-select" id="q3">
+								<h4>I watch Fox News every day.</h4>
+								<select data-placeholder="" class="chosen-select" id="q3" required>
 									<option value=""></option>
 									<option value="1">1 (Strongly Disagree)</option>
 									<option value="2">2 (Mildly Disagree)</option>
@@ -79,7 +82,7 @@
 							<div class="form-group">
 								<h3><strong>Question 4</strong></h3>
 								<h4>How much do you enjoy watching a new episode of Duck Dynasty?</h4>
-								<select data-placeholder="" class="chosen-select" id="q4">
+								<select data-placeholder="" class="chosen-select" id="q4" required>
 									<option value=""></option>
 									<option value="1">1 (Strongly Disagree)</option>
 									<option value="2">2 (Mildly Disagree)</option>
@@ -117,12 +120,12 @@
 		// Here we grab the form elements
 		var newScore = $('.chosen-select');
 		var newFriend = {
-			friendName: $('#friend_name').val().trim(),
-			phoneNumber: $('#friend_phone').val().trim(),
+			name: $('#friend_name').val().trim(),
+			number: $('#friend_phone').val().trim(),
+			photoUrl: $('#friend_photo').val().trim(),
 			scores: [],			
 		};
-
-		//console.log(newScore);
+		
 		for(var i = 0; i < newScore.length; i++){
 			newFriend.scores.push(newScore[i].value);
 		}
@@ -130,15 +133,16 @@
 		var currentURL = window.location.origin;
 
 		$.post(currentURL + "/api/friends", newFriend,
-			function(friendData){	    	
-	    	if(friendData){
-				$("#new-friend-photo").attr("src", friendData.photoUrl);
-				$("#new-friend-data").text("Your new best friend " + friendData.name 
-	    			+ " Call 'em at " + friendData.number);	    		
+			function(friendsData){	    	
+	    	if(friendsData){
+				$("#new-friend-photo").attr("src", friendsData.photoUrl);
+				$("#new-friend-data").text("Here's your new best friend " + friendsData.name 
+	    			+ ".  Call 'em at " + friendsData.number);	    		
 	    	}	    	
-	    	if(!friendData){
+	    	if(!friendsData){
 	    		alert("Sorry something's wrong, you have no friends.")
 	    	}
+
 	    	// Clear the form when submitting
 	    	/*$('#reserve_name').val("");
 	    	$('#reserve_phone').val("");

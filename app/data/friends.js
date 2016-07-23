@@ -3,7 +3,7 @@ var friendsArry = [
 		name: "Suzi",
 		photoUrl: "http://www.dogtricktips.com/wp-content/uploads/2015/03/Budget-Friendly-Dogs.jpg",
 		number: "234-4566",
-		scores: [5,4,3,4]
+		scores: [5,5,3,4]
 		//17		
 	},
 	{
