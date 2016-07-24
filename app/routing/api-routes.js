@@ -33,9 +33,9 @@ module.exports = function(app){
 		res.json(friendObj);
 		console.log(req.body);	
 		friendsData.push(req.body);
-		for (var l = friendsData.length -1; l >= 0; l--){
+		/*for (var l = friendsData.length -1; l >= 0; l--){
 			console.log("friendsData name " + friendsData[l].name);
-		}
+		}*/
 		
 	});//app.post
 };
