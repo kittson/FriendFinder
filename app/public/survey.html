@@ -135,6 +135,7 @@
 		$.post(currentURL + "/api/friends", newFriend,
 			function(friendsData){	    	
 	    	if(friendsData){
+	    		console.log(friendsData);
 				$("#new-friend-photo").attr("src", friendsData.photoUrl);
 				$("#new-friend-data").text("Here's your new best friend " + friendsData.name 
 	    			+ ".  Call 'em at " + friendsData.number);	    		
