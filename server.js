@@ -6,9 +6,9 @@ var path = require('path');
 
 //this is for finding the image dir
 
-app.use(express.static(path.join(__dirname, 'app/public')));
-
-var PORT = process.env.PORT || 3030;
+//app.use(express.static(path.join(__dirname, 'app/public')));
+app.use(express.static(path.normalize(path.join(__dirname, 'app/public'))));
+var PORT = process.env.PORT || 3030;//must use this for heroku deployment
 
 
 app.use(bodyParser.json());
